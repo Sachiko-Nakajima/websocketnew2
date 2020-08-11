@@ -663,7 +663,6 @@ function switchMusic(){
       applesound.setVolume(0);
       plantsound.loop();
       plantsound.setVolume(0);
-    }
 
       if (filterOn) {
       cupsound.disconnect();
@@ -735,7 +734,8 @@ function switchMusic(){
     scissory = random(400)+100;     
     applex = random(600)+300;
     appley = random(400)+100; 
-
+}
+else{
     bearsound.stop();
     phonesound.stop();
     cupsound.stop();
@@ -752,7 +752,7 @@ if(soundFileState){
     }
   }
 }
-
+}
 
 function record() {
       if(switchState){
