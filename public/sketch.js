@@ -78,23 +78,23 @@ let efxState = false;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
-  phonesound = loadSound("audios/SecondSet/Phone.wav");
+  phonesound = loadSound("audios/SecondSet/Phone.mp3");
   // phonesounds[0] = loadSound("audios/piano0.wav");
   // phonesounds[1] = loadSound("audios/piano1.wav");
   // phonesounds[2] = loadSound("audios/piano2.wav");
- bearsound = loadSound("audios/SecondSet/Bear.wav");
+ bearsound = loadSound("audios/SecondSet/Bear.mp3");
   // bearsounds[0] = loadSound("audios/guitar0.wav");
   // bearsounds[1] = loadSound("audios/guitar1.wav");
   // bearsounds[2] = loadSound("audios/guitar22.wav");
-  cupsound = loadSound("audios/SecondSet/Cup.wav");
+  cupsound = loadSound("audios/SecondSet/Cup.mp3");
   // cupsounds[0] = loadSound("audios/drums0.wav");
   // cupsounds[1] = loadSound("audios/drums1.wav");
   // cupsounds[2] = loadSound("audios/drums2.wav");
- bottlesound = loadSound("audios/SecondSet/Bottle.wav");
+ bottlesound = loadSound("audios/SecondSet/Bottle.mp3");
   // bottlesounds[0] = loadSound("audios/recorder.wav");
   // bottlesounds[1] = loadSound("audios/sax1.wav");
   // bottlesounds[2] = loadSound("audios/sax2.wav");
- plantsound = loadSound("audios/SecondSet/Plant.wav");
+ plantsound = loadSound("audios/SecondSet/Plant.mp3");
 
 // plantsounds[0] = loadSound("audios/nature0.mp3");
 // plantsounds[1] = loadSound("audios/nature1.mp3");
@@ -109,7 +109,7 @@ function preload() {
   // scissorsounds[1] = loadSound("audios/bass1.wav");
   // scissorsounds[2] = loadSound("audios/bass2.wav");
 
-  applesound = loadSound("audios/animal2.wav");
+  applesound = loadSound("audios/animal2.mp3");
   // applesounds[0] = loadSound("audios/vib0.wav");
   // applesounds[1] = loadSound("audios/vib1.wav");
   // applesounds[2] = loadSound("audios/vib2.wav");
