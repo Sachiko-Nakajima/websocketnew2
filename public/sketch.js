@@ -55,7 +55,7 @@ let prepreprebookreceivenum=0;
 let buttonState = false; 
 let button;
 let bearx,beary,phonex, phoney, cupx, cupy, bookx, booky, bottlex, bottley, plantx, planty, toothbrushx, toothbrushy, scissorx, scissory, applex, appley;
-let phonenumber=bearnumber=bottlenumber=cupnumber=plantnumber=scissornumber=toothbrushnumber=booknumber=applrnumber=0;
+let phonenumber=bearnumber=bottlenumber=cupnumber=plantnumber=scissornumber=toothbrushnumber=booknumber=applenumber=0;
 let recorder, soundFile;
 let timer = 4; //timer starts at 4 second
 let starttime;
