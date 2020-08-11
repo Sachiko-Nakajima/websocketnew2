@@ -955,6 +955,9 @@ if(data.label == 'book'){
               bottlesound.connect();}
             bottlesound.setVolume(1);
             bottlereceivenum++;
+            console.log("bottle is there!");
+            if(bottlesound.isPlaying){
+            console.log("bottlesound is on!");}
           }
 
       if(data.label == 'teddy bear'){
