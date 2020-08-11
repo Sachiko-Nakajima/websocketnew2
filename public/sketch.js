@@ -16,23 +16,7 @@ let rphone, rbear, rbottle, rtoothbrush, rcup;
 
 let detector, detections;
 let kitty, phonesound, phone, bearsound, bear, cupsound, cup, bottlesound, bottle, booksound, book, plantsound, plant, toothbrush, toothbrushsound, scissor, scissorsound, apple, applesound;
-let phonesounds=[];
-let cupsounds =[];
-let bottlesounds =[];
-let bearsounds =[];
-let toothbrushsounds=[];
-let scissorsounds=[];
-let applesounds=[];
-let plantsounds=[];
 let time = 0;
-let phonenumber = 0;
-let bearnumber = 0;
-let bottlenumber = 0;
-let cupnumber = 0;
-let plantnumber = 0;
-let toothbrushnumber = 0;
-let scissornumber = 0;
-let applenumber = 0;
 let socket;
 //let font1_shadow; let cam_y =-220;
 let name;
@@ -71,7 +55,7 @@ let prepreprebookreceivenum=0;
 let buttonState = false; 
 let button;
 let bearx,beary,phonex, phoney, cupx, cupy, bookx, booky, bottlex, bottley, plantx, planty, toothbrushx, toothbrushy, scissorx, scissory, applex, appley;
-
+let phonenumber=bearnumber=bottlenumber=cupnumber=plantnumber=scissornumber=toothbrushnumber=booknumber=applrnumber=0;
 let recorder, soundFile;
 let timer = 4; //timer starts at 4 second
 let starttime;
@@ -94,39 +78,41 @@ let efxState = false;
 
 function preload() {
   soundFormats('mp3', 'ogg', 'wav');
-  phonesounds[0] = loadSound("audios/piano0.wav");
-  phonesounds[1] = loadSound("audios/piano1.wav");
-  phonesounds[2] = loadSound("audios/piano2.wav");
-//  bearsound = loadSound("audios/guitar.wav");
-  bearsounds[0] = loadSound("audios/guitar0.wav");
-  bearsounds[1] = loadSound("audios/guitar1.wav");
-  bearsounds[2] = loadSound("audios/guitar22.wav");
-  // cupsound = loadSound("audios/drums.wav");
-  cupsounds[0] = loadSound("audios/drums0.wav");
-  cupsounds[1] = loadSound("audios/drums1.wav");
-  cupsounds[2] = loadSound("audios/drums2.wav");
-//  bottlesound = loadSound("audios/recorder.wav");
-  bottlesounds[0] = loadSound("audios/recorder.wav");
-  bottlesounds[1] = loadSound("audios/sax1.wav");
-  bottlesounds[2] = loadSound("audios/sax2.wav");
-//  plantsound = loadSound("audios/birds.wav");
+  phonesound = loadSound("audios/piano0.wav");
+  // phonesounds[0] = loadSound("audios/piano0.wav");
+  // phonesounds[1] = loadSound("audios/piano1.wav");
+  // phonesounds[2] = loadSound("audios/piano2.wav");
+ bearsound = loadSound("audios/guitar.wav");
+  // bearsounds[0] = loadSound("audios/guitar0.wav");
+  // bearsounds[1] = loadSound("audios/guitar1.wav");
+  // bearsounds[2] = loadSound("audios/guitar22.wav");
+  cupsound = loadSound("audios/drums.wav");
+  // cupsounds[0] = loadSound("audios/drums0.wav");
+  // cupsounds[1] = loadSound("audios/drums1.wav");
+  // cupsounds[2] = loadSound("audios/drums2.wav");
+ bottlesound = loadSound("audios/recorder.wav");
+  // bottlesounds[0] = loadSound("audios/recorder.wav");
+  // bottlesounds[1] = loadSound("audios/sax1.wav");
+  // bottlesounds[2] = loadSound("audios/sax2.wav");
+ plantsound = loadSound("audios/birds.wav");
 
-plantsounds[0] = loadSound("audios/nature0.mp3");
-plantsounds[1] = loadSound("audios/nature1.mp3");
-plantsounds[2] = loadSound("audios/nature2.wav");
+// plantsounds[0] = loadSound("audios/nature0.mp3");
+// plantsounds[1] = loadSound("audios/nature1.mp3");
+// plantsounds[2] = loadSound("audios/nature2.wav");
 
-//  toothbrushsound = loadSound("audios/bass1.wav");
-  toothbrushsounds[0] = loadSound("audios/animal0.wav");
-  toothbrushsounds[1] = loadSound("audios/animal1.wav");
-  toothbrushsounds[2] = loadSound("audios/animal2.mp3");
-//  scissorsound = loadSound("audios/cow.wav");
-  scissorsounds[0] = loadSound("audios/bass0.wav");
-  scissorsounds[1] = loadSound("audios/bass1.wav");
-  scissorsounds[2] = loadSound("audios/bass2.wav");
+ toothbrushsound = loadSound("audios/bass1.wav");
+  // toothbrushsounds[0] = loadSound("audios/animal0.wav");
+  // toothbrushsounds[1] = loadSound("audios/animal1.wav");
+  // toothbrushsounds[2] = loadSound("audios/animal2.mp3");
+ scissorsound = loadSound("audios/cow.wav");
+  // scissorsounds[0] = loadSound("audios/bass0.wav");
+  // scissorsounds[1] = loadSound("audios/bass1.wav");
+  // scissorsounds[2] = loadSound("audios/bass2.wav");
 
-  applesounds[0] = loadSound("audios/vib0.wav");
-  applesounds[1] = loadSound("audios/vib1.wav");
-  applesounds[2] = loadSound("audios/vib2.wav");
+  applesound = loadSound("audios/vib0.wav");
+  // applesounds[0] = loadSound("audios/vib0.wav");
+  // applesounds[1] = loadSound("audios/vib1.wav");
+  // applesounds[2] = loadSound("audios/vib2.wav");
 
   // phonesound = loadSound("audios/Phone.mp3");
   // bearsound = loadSound("audios/Teddy.mp3");
@@ -219,23 +205,6 @@ function setup() {
  recorder.setInput(mic);   
  soundofBook = new p5.SoundFile();  
  
- phonesound = new p5.SoundFile();  
- bearsound = new p5.SoundFile();  
- cupsound = new p5.SoundFile();  
- bottlesound = new p5.SoundFile();  
- toothbrushsound = new p5.SoundFile();  
- scissorsound = new p5.SoundFile();  
- applesound = new p5.SoundFile();  
- plantsound = new p5.SoundFile();  
-
- phonesound = phonesounds[0];
- bearsound = bearsounds[0];
- cupsound = cupsounds[0];
- bottlesound = bottlesounds[0];
- toothbrushsound = toothbrushsounds[0];
- scissorsound = cupsounds[0];
- applesound = cupsounds[0];
- plantsound = cupsounds[0];
 // remoteSoundofBook = new p5.SoundFile();  
 //  recordButton = createButton('Book Sound Rec');
 //  recordButton.position(500,710);
@@ -552,17 +521,15 @@ rect(0,750,600,60);
     phone.position(8000, 8000);
     phonenumber++;
     if(phonenumber%5==0){
-      rphone = floor(random(3));
-      phonesound = phonesounds[rphone];
-    }
+      phonex = random(300)+300;
+      phoney = random(200)+100;
+      }
   }
   if(bearreceivenum==preprebearreceivenum){
     bearsound.setVolume(0);
     bear.position(8000, 8000);
     bearnumber++;
     if(bearnumber%5==0){
-      rbear = floor(random(3));
-      bearsound = bearsounds[rbear];
       bearx = random(300)+300;
       beary = random(200)+100;
       }
@@ -573,8 +540,6 @@ rect(0,750,600,60);
     cup.position(8000, 8000);
     cupnumber++;
     if(cupnumber%5==0){
-      rcup = floor(random(3));
-      cupsound = cupsounds[rcup];
       cupx = random(600)+300;
       cupy = random(400)+100;
       }
@@ -585,8 +550,6 @@ rect(0,750,600,60);
     bottle.position(8000, 8000);
     bottlenumber++;
     if(bottlenumber%5==0){
-      rbottle = floor(random(3));
-      bottlesound = bottlesounds[rbottle];
       bottlex = random(600)+300;
       bottley = random(400)+100;
         }
@@ -609,8 +572,6 @@ rect(0,750,600,60);
     plant.position(8000, 8000);  
     plantnumber++;
     if(plantnumber%5==0){
-      rplant = floor(random(3));
-      plantsound = plantsounds[rplant];
       plantx = random(600)+300;
       planty = random(400)+100;
       }
@@ -621,8 +582,6 @@ rect(0,750,600,60);
     toothbrush.position(8000, 8000);  
     toothbrushnumber++;
     if(toothbrushnumber%5==0){
-      rtoothbrush = floor(random(3));
-      toothbrushsound = toothbrushsounds[rtoothbrush];
       toothbrushx = random(600)+300;
       toothbrushy = random(400)+100;
       }
@@ -633,8 +592,6 @@ rect(0,750,600,60);
     scissor.position(8000, 8000);  
     scissornumber++;
     if(scissornumber%5==0){
-      rscissor = floor(random(3));
-      scissorsound = scissorsounds[rscissor];
       scissorx = random(600)+300;
       scissory = random(400)+100;
       }
@@ -645,8 +602,6 @@ rect(0,750,600,60);
     apple.position(8000, 8000);  
     applenumber++;
     if(applenumber%5==0){
-      rapple = floor(random(3));
-      applesound = applesounds[rapple];
       applex = random(600)+300;
       appley = random(400)+100;
       }
@@ -691,66 +646,47 @@ const nativeVideoTracks = camera_1.elt.srcObject.getTracks()
 function switchMusic(){
   event.preventDefault();
   switchState=!switchState;
-  if(switchState){
-    rphone = floor(random(3));
-    phonesound = phonesounds[rphone];
-    rbear = floor(random(3));
-    bearsound = bearsounds[rbear];
-    rbottle = floor(random(3));
-    bottlesound = bottlesounds[rbottle];
-    rcup = floor(random(3));
-    cupsound = cupsounds[rcup];
-    rtoothbrush = floor(random(3));
-    toothbrushsound = toothbrushsounds[rtoothbrush];
-    rscissor = floor(random(3));
-    scissorsound = scissorsounds[rscissor];
-    rapple = floor(random(3));
-    applesound = applesounds[rapple];
-    rplant = floor(random(3));
-    plantsound = plantsounds[rplant];
-    
-    for(let i=0;i<3;i++){
-      phonesounds[i].loop();
-      phonesounds[i].setVolume(0);
-      cupsounds[i].loop();
-      cupsounds[i].setVolume(0);
-      bearsounds[i].loop();
-      bearsounds[i].setVolume(0);
-      bottlesounds[i].loop();
-      bottlesounds[i].setVolume(0);
-      toothbrushsounds[i].loop();
-      toothbrushsounds[i].setVolume(0);
-      scissorsounds[i].loop();
-      scissorsounds[i].setVolume(0);
-      applesounds[i].loop();
-      applesounds[i].setVolume(0);
-      plantsounds[i].loop();
-      plantsounds[i].setVolume(0);
+  if(switchState){   
+      phonesound.loop();
+      phonesound.setVolume(0);
+      cupsound.loop();
+      cupsound.setVolume(0);
+      bearsound.loop();
+      bearsound.setVolume(0);
+      bottlesound.loop();
+      bottlesound.setVolume(0);
+      toothbrushsound.loop();
+      toothbrushsound.setVolume(0);
+      scissorsound.loop();
+      scissorsound.setVolume(0);
+      applesound.loop();
+      applesound.setVolume(0);
+      plantsound.loop();
+      plantsound.setVolume(0);
     }
 
-    for(let i=0;i<3;i++){
       if (filterOn) {
-      cupsounds[i].disconnect();
-      cupsounds[i].connect(filter);
-      phonesounds[i].disconnect();
-      phonesounds[i].connect(filter);
-      bottlesounds[i].disconnect();
-      bottlesounds[i].connect(filter);
-      scissorsounds[i].disconnect();
-      scissorsounds[i].connect(filter);
-      bearsounds[i].disconnect();
-      bearsounds[i].connect(filter);
+      cupsound.disconnect();
+      cupsound.connect(filter);
+      phonesound.disconnect();
+      phonesound.connect(filter);
+      bottlesound.disconnect();
+      bottlesound.connect(filter);
+      scissorsound.disconnect();
+      scissorsound.connect(filter);
+      bearsound.disconnect();
+      bearsound.connect(filter);
     }else{
-      cupsounds[i].disconnect(filter);
-      cupsounds[i].connect();
-      phonesounds[i].disconnect(filter);
-      phonesounds[i].connect();
-      bottlesounds[i].disconnect(filter);
-      bottlesounds[i].connect();
-      scissorsounds[i].disconnect(filter);
-      scissorsounds[i].connect();
-      bearsounds[i].disconnect(filter);
-      bearsounds[i].connect();
+      cupsound.disconnect(filter);
+      cupsound.connect();
+      phonesound.disconnect(filter);
+      phonesound.connect();
+      bottlesound.disconnect(filter);
+      bottlesound.connect();
+      scissorsound.disconnect(filter);
+      scissorsound.connect();
+      bearsound.disconnect(filter);
+      bearsound.connect();
     }
   }
   
