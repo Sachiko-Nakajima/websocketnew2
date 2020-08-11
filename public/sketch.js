@@ -957,7 +957,7 @@ if(data.label == 'book'){
             bottlereceivenum++;
             console.log("bottle is there!");
             if(bottlesound.isPlaying){
-            console.log("bottlesound is on!");}
+            console.log(bottlesound.volume);}
           }
 
       if(data.label == 'teddy bear'){
