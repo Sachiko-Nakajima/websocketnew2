@@ -953,7 +953,7 @@ if(data.label == 'book'){
             else{
               bottlesound.disconnect(filter);
               bottlesound.connect();}
-            bottlesound.setVolume(1);
+            bottlesound.setVolume(0.6);
             bottlereceivenum++;
             console.log("bottle is there!");
             if(bottlesound.isPlaying){
@@ -980,7 +980,7 @@ if(data.label == 'book'){
             yyy =planty;
             plant.position(xxx, yyy);
             plant.size(3*data.w, 3*data.w);
-            plantsound.setVolume(1);
+            plantsound.setVolume(0.6);
             plantreceivenum++;
                 }
   
