@@ -894,8 +894,8 @@ function newDrawing(data){
    let xxx,yyy;
 
    if(data.label == 'person'){
-    filterFreq = map(data.w, 0, width, 100, 2000);
-    filterRes = map(data.h, 0, height, 40, 5);
+    filterFreq = map(data.w, 0, width, 50, 4000);
+    filterRes = map(data.h, 0, height, 120, 5);
     filter.set(filterFreq, filterRes);
   }
 
